@@ -43,17 +43,75 @@ function updateModels() {
   }
 }
 
-function setPricingSize(size) {
-  document.querySelectorAll('.size-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.size === size);
+var selectedServices = new Set();
+
+function toggleService(el) {
+  var name = el.querySelector('h4').textContent.trim();
+  var conflictsWithFull = ['Exterior Detail', 'Interior Detail'];
+  var isFullDetail = name === 'Full Detail Package';
+  var hasFullDetail = selectedServices.has('Full Detail Package');
+
+  if (isFullDetail && !el.classList.contains('selected')) {
+    document.querySelectorAll('.svc-desc-item').forEach(function(item) {
+      var itemName = item.querySelector('h4').textContent.trim();
+      if (conflictsWithFull.includes(itemName)) {
+        item.classList.remove('selected');
+        selectedServices.delete(itemName);
+      }
+    });
+  }
+  if (conflictsWithFull.includes(name) && !el.classList.contains('selected') && hasFullDetail) {
+    document.querySelectorAll('.svc-desc-item').forEach(function(item) {
+      if (item.querySelector('h4').textContent.trim() === 'Full Detail Package') {
+        item.classList.remove('selected');
+        selectedServices.delete('Full Detail Package');
+      }
+    });
+  }
+
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) {
+    selectedServices.add(name);
+  } else {
+    selectedServices.delete(name);
+  }
+  updateBookingBar();
+}
+
+function clearAllServices() {
+  selectedServices.clear();
+  document.querySelectorAll('.svc-desc-item.selected').forEach(function(el) {
+    el.classList.remove('selected');
   });
-  document.querySelectorAll('.price-display').forEach(function(el) {
-    el.style.opacity = '0';
-    setTimeout(function() {
-      el.textContent = el.dataset[size] || el.textContent;
-      el.style.opacity = '1';
-    }, 150);
-  });
+  updateBookingBar();
+}
+
+function updateBookingBar() {
+  var bar = document.getElementById('bookingBar');
+  var count = document.getElementById('bookingServiceCount');
+  var list = document.getElementById('bookingServiceList');
+  if (selectedServices.size > 0) {
+    bar.classList.add('visible');
+    count.textContent = selectedServices.size + ' service(s) selected';
+    list.textContent = Array.from(selectedServices).join(' · ');
+  } else {
+    bar.classList.remove('visible');
+  }
+  checkBookingReady();
+}
+
+function checkBookingReady() {
+  var btn = document.getElementById('bookCalendlyBtn');
+  if (!btn) return;
+  if (selectedServices.size > 0) {
+    btn.classList.add('ready');
+  } else {
+    btn.classList.remove('ready');
+  }
+}
+
+function openCalendly() {
+  window.open('https://calendly.com/gtprecisiondetail/detail', '_blank');
 }
 
 function openCalendlyGated() {
@@ -78,17 +136,11 @@ function openCalendlyGated() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var sizeSmall = document.getElementById('sizeSmall');
-  var sizeMedium = document.getElementById('sizeMedium');
-  var sizeLarge = document.getElementById('sizeLarge');
-  if (sizeSmall) sizeSmall.addEventListener('click', function() { setPricingSize('small'); });
-  if (sizeMedium) sizeMedium.addEventListener('click', function() { setPricingSize('medium'); });
-  if (sizeLarge) sizeLarge.addEventListener('click', function() { setPricingSize('large'); });
-
   var vehicleMake = document.getElementById('vehicleMake');
   if (vehicleMake) vehicleMake.addEventListener('change', updateModels);
 
   document.querySelectorAll('.svc-desc-item').forEach(function(el) {
+    el.style.cursor = 'pointer';
     el.addEventListener('click', function() { toggleService(el); });
   });
 
