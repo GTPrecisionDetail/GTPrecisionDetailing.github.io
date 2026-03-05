@@ -132,7 +132,7 @@ function openCalendlyGated() {
     return;
   }
   errorEl.style.display = 'none';
-  window.open('https://calendly.com/gtprecisiondetail/detail', '_blank');
+  window.open('https://calendly.com/gtprecisiondetail/detail','_blank');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
