@@ -29,7 +29,40 @@ var carModels = {
   Other: ['Other']
 };
 
-function updateModels() {
+function setPricingSize(size) {
+  document.querySelectorAll('.size-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.size === size);
+  });
+  document.querySelectorAll('.price-display').forEach(function(el) {
+    el.style.opacity = '0';
+    setTimeout(function() {
+      el.textContent = el.dataset[size] || el.textContent;
+      el.style.opacity = '1';
+    }, 150);
+  });
+}
+
+function openCalendlyGated() {
+  var form = document.getElementById('contactForm');
+  var required = form.querySelectorAll('[required]');
+  var valid = true;
+  required.forEach(function(el) {
+    if (!el.value.trim()) {
+      valid = false;
+      el.style.borderColor = '#e07070';
+      el.addEventListener('input', function() { el.style.borderColor = ''; }, { once: true });
+    }
+  });
+  var errorEl = document.getElementById('calendly-error');
+  if (!valid) {
+    errorEl.style.display = 'block';
+    form.querySelector('[required]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  errorEl.style.display = 'none';
+  window.open('https://calendly.com/gtprecisiondetail/detail', '_blank');
+}
+
   var make = document.getElementById('vehicleMake').value;
   var modelSelect = document.getElementById('vehicleModel');
   modelSelect.innerHTML = '<option value="">Select a model...</option>';
@@ -42,3 +75,39 @@ function updateModels() {
     });
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Pricing size buttons
+  var sizeSmall = document.getElementById('sizeSmall');
+  var sizeMedium = document.getElementById('sizeMedium');
+  var sizeLarge = document.getElementById('sizeLarge');
+  if (sizeSmall) sizeSmall.addEventListener('click', function() { setPricingSize('small'); });
+  if (sizeMedium) sizeMedium.addEventListener('click', function() { setPricingSize('medium'); });
+  if (sizeLarge) sizeLarge.addEventListener('click', function() { setPricingSize('large'); });
+
+  // Service description items
+  document.querySelectorAll('.svc-desc-item').forEach(function(el) {
+    el.removeAttribute('onclick');
+    el.addEventListener('click', function() { toggleService(el); });
+  });
+
+  // Booking bar buttons
+  var bookCalendlyBtn = document.getElementById('bookCalendlyBtn');
+  if (bookCalendlyBtn) {
+    bookCalendlyBtn.removeAttribute('onclick');
+    bookCalendlyBtn.addEventListener('click', openCalendly);
+  }
+
+  var clearBtn = document.querySelector('.booking-clear');
+  if (clearBtn) {
+    clearBtn.removeAttribute('onclick');
+    clearBtn.addEventListener('click', clearAllServices);
+  }
+
+  // Book on Calendly gated button
+  var gatedBtn = document.querySelector('button[onclick="openCalendlyGated()"]');
+  if (gatedBtn) {
+    gatedBtn.removeAttribute('onclick');
+    gatedBtn.addEventListener('click', openCalendlyGated);
+  }
+});
