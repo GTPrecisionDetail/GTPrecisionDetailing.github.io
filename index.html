@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0068)file:///C:/Users/jaxpe/Downloads/gt-precision-detailing-FINAL_2.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -1658,9 +1659,10 @@
     </div>
 
     <div id="form-success" style="display:none; color:#4a7c59; font-size:0.85rem; letter-spacing:0.08em;">✓ Message sent! We'll be in touch soon.</div>
+    <div id="calendly-error" style="display:none; color:#e07070; font-size:0.82rem; letter-spacing:0.05em; margin-top:4px;">⚠ Please fill out all required fields before booking.</div>
     <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
       <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
-      <a href="https://calendly.com/gtprecisiondetail/detail" target="_blank" class="form-submit" style="display:inline-block; text-decoration:none; background: transparent; border: 1.5px solid var(--gold); color: var(--gold);">Book on Calendly →</a>
+      <button type="button" class="form-submit" onclick="openCalendlyGated()" style="background: transparent; border: 1.5px solid var(--gold); color: var(--gold); cursor:pointer;">Book on Calendly →</button>
     </div>
   </form>
 </section>
@@ -1905,19 +1907,6 @@
     if (prefTime) notes += ' | Preferred Time: ' + prefTime;
     if (notes) params.set('a2', notes);
     window.open(baseUrl + '?' + params.toString(), '_blank');
-  }
-
-  function setPricingSize(size) {
-    document.querySelectorAll('.size-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.size === size);
-    });
-    document.querySelectorAll('.price-display').forEach(el => {
-      el.style.opacity = '0';
-      setTimeout(() => {
-        el.textContent = el.dataset[size] || el.textContent;
-        el.style.opacity = '1';
-      }, 150);
-    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
