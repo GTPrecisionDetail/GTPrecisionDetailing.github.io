@@ -29,6 +29,20 @@ var carModels = {
   Other: ['Other']
 };
 
+function updateModels() {
+  var make = document.getElementById('vehicleMake').value;
+  var modelSelect = document.getElementById('vehicleModel');
+  modelSelect.innerHTML = '<option value="">Select a model...</option>';
+  if (make && carModels[make]) {
+    carModels[make].forEach(function(m) {
+      var opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m;
+      modelSelect.appendChild(opt);
+    });
+  }
+}
+
 function setPricingSize(size) {
   document.querySelectorAll('.size-btn').forEach(function(btn) {
     btn.classList.toggle('active', btn.dataset.size === size);
@@ -63,21 +77,7 @@ function openCalendlyGated() {
   window.open('https://calendly.com/gtprecisiondetail/detail', '_blank');
 }
 
-  var make = document.getElementById('vehicleMake').value;
-  var modelSelect = document.getElementById('vehicleModel');
-  modelSelect.innerHTML = '<option value="">Select a model...</option>';
-  if (make && carModels[make]) {
-    carModels[make].forEach(function(m) {
-      var opt = document.createElement('option');
-      opt.value = m;
-      opt.textContent = m;
-      modelSelect.appendChild(opt);
-    });
-  }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Pricing size buttons
   var sizeSmall = document.getElementById('sizeSmall');
   var sizeMedium = document.getElementById('sizeMedium');
   var sizeLarge = document.getElementById('sizeLarge');
@@ -85,29 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
   if (sizeMedium) sizeMedium.addEventListener('click', function() { setPricingSize('medium'); });
   if (sizeLarge) sizeLarge.addEventListener('click', function() { setPricingSize('large'); });
 
-  // Service description items
+  var vehicleMake = document.getElementById('vehicleMake');
+  if (vehicleMake) vehicleMake.addEventListener('change', updateModels);
+
   document.querySelectorAll('.svc-desc-item').forEach(function(el) {
-    el.removeAttribute('onclick');
     el.addEventListener('click', function() { toggleService(el); });
   });
 
-  // Booking bar buttons
   var bookCalendlyBtn = document.getElementById('bookCalendlyBtn');
-  if (bookCalendlyBtn) {
-    bookCalendlyBtn.removeAttribute('onclick');
-    bookCalendlyBtn.addEventListener('click', openCalendly);
-  }
+  if (bookCalendlyBtn) bookCalendlyBtn.addEventListener('click', openCalendly);
 
   var clearBtn = document.querySelector('.booking-clear');
-  if (clearBtn) {
-    clearBtn.removeAttribute('onclick');
-    clearBtn.addEventListener('click', clearAllServices);
-  }
+  if (clearBtn) clearBtn.addEventListener('click', clearAllServices);
 
-  // Book on Calendly gated button
-  var gatedBtn = document.querySelector('button[onclick="openCalendlyGated()"]');
-  if (gatedBtn) {
-    gatedBtn.removeAttribute('onclick');
-    gatedBtn.addEventListener('click', openCalendlyGated);
-  }
+  var gatedBtn = document.querySelector('.form-submit[type="button"]');
+  if (gatedBtn) gatedBtn.addEventListener('click', openCalendlyGated);
 });
