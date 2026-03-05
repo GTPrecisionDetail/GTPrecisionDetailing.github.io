@@ -1471,17 +1471,25 @@
     <div class="gold-line"></div>
     <h2 style="color:var(--white);">What To Expect</h2>
     <p>All pricing is based on vehicle size and condition. Final quotes are provided after a quick consultation.</p>
-    <div class="pricing-size-toggle">
-      <button class="size-btn active" data-size="small" onclick="setPricingSize('small')">Compact / Sedan / Coupe</button>
-      <button class="size-btn" data-size="medium" onclick="setPricingSize('medium')">SUV / Crossover / Minivan</button>
-      <button class="size-btn" data-size="large" onclick="setPricingSize('large')">Large SUV / Truck</button>
-    </div>
   </div>
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-num">01</div>
       <h3 class="pricing-name">Exterior Detail</h3>
-      <div class="pricing-price"><span class="price-display" data-small="$90" data-medium="$100" data-large="$125">$90</span></div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Compact / Sedan</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$90</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">SUV / Crossover</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$110</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Large SUV / Truck</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$130</span>
+        </div>
+      </div>
       <ul class="pricing-list">
         <li>Hand wash &amp; dry</li>
         <li>Polish &amp; shine</li>
@@ -1492,7 +1500,20 @@
     <div class="pricing-card">
       <div class="pricing-num">02</div>
       <h3 class="pricing-name">Interior Detail</h3>
-      <div class="pricing-price"><span class="price-display" data-small="$105" data-medium="$120" data-large="$145">$105</span></div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Compact / Sedan</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$105</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">SUV / Crossover</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$125</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Large SUV / Truck</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$150</span>
+        </div>
+      </div>
       <ul class="pricing-list">
         <li>Full vacuum &amp; deep clean</li>
         <li>Leather conditioning</li>
@@ -1504,7 +1525,20 @@
       <div class="pricing-badge">Best Value</div>
       <div class="pricing-num">03</div>
       <h3 class="pricing-name">Full Detail Package</h3>
-      <div class="pricing-price"><span class="price-display" data-small="$180" data-medium="$200" data-large="$250">$180</span></div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Compact / Sedan</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$180</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">SUV / Crossover</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$210</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Large SUV / Truck</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$260</span>
+        </div>
+      </div>
       <ul class="pricing-list">
         <li>Complete interior detail</li>
         <li>Full exterior treatment</li>
@@ -1515,7 +1549,20 @@
     <div class="pricing-card">
       <div class="pricing-num">04</div>
       <h3 class="pricing-name">Paint Correction</h3>
-      <div class="pricing-price"><span class="price-display" data-small="$55" data-medium="$55" data-large="$65">$55</span></div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Compact / Sedan</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$55</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">SUV / Crossover</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$65</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Large SUV / Truck</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">$80</span>
+        </div>
+      </div>
       <ul class="pricing-list">
         <li>Swirl &amp; scratch removal</li>
         <li>Machine polishing</li>
@@ -1526,7 +1573,20 @@
     <div class="pricing-card">
       <div class="pricing-num">05</div>
       <h3 class="pricing-name">Maintenance Plans</h3>
-      <div class="pricing-price"><span style="font-size:1.1rem;">Package(s) of your choice</span></div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Any Vehicle Size</span>
+          <span style="font-size:0.85rem; font-weight:600; color:var(--gold);">Package price</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Monthly</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">10% off</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#555;">Quarterly</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:var(--gold);">Priority</span>
+        </div>
+      </div>
       <ul class="pricing-list">
         <li>Monthly or quarterly visits</li>
         <li>Priority scheduling</li>
@@ -1557,7 +1617,7 @@
         <div style="width:48px; height:48px; border:1px solid rgba(26,111,196,0.4); display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1rem; flex-shrink:0;">✉</div>
         <div>
           <p style="font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:#555; margin:0 0 4px;">Email</p>
-          <p style="font-size:1.15rem; font-weight:600; color:var(--white); margin:0; transition:color 0.3s;" onmouseover="this.style.color='#3a8fe4'" onmouseout="this.style.color='var(--white)'">gtprecisiondetail@gmail.com</p>
+          <p style="font-size:1.15rem; font-weight:600; color:var(--white); margin:0; transition:color 0.3s;" onmouseover="this.style.color='#3a8fe4'" onmouseout="this.style.color='var(--white)'"><span class="__cf_email__" data-cfemail="086f7c787a6d6b617b6167666c6d7c696164486f65696164266b6765">[email&#160;protected]</span></p>
         </div>
       </a>
     </div>
@@ -1573,7 +1633,7 @@
         <div class="contact-icon">✉</div>
         <div>
           <h4>Email</h4>
-          <p><a href="#" onclick="this.href='mailto:gtprecisiondetail'+'@'+'gmail.com'" style="color:#bbb; text-decoration:none;">gtprecisiondetail@gmail.com</a></p>
+          <p><a href="#" onclick="this.href='mailto:gtprecisiondetail'+'@'+'gmail.com'" style="color:#bbb; text-decoration:none;"><span class="__cf_email__" data-cfemail="ef889b9f9d8a8c869c8680818b8a9b8e8683af88828e8683c18c8082">[email&#160;protected]</span></a></p>
         </div>
       </div>
       <div class="contact-item" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s;">
@@ -1765,7 +1825,7 @@
   <p>© 2026 GT Precision Detailing. All rights reserved.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const selectedServices = new Set();
 
   function toggleService(el) {
@@ -1966,14 +2026,4 @@
             document.getElementById('form-success').style.display = 'block';
             document.getElementById('gate-notice').style.display = 'none';
             document.getElementById('book-calendly-wrap').style.display = 'block';
-            btn.textContent = 'Sent ✓';
-            btn.style.background = '#4a7c59';
-            btn.style.color = '#fff';
-            form.reset();
-          } else {
-            btn.textContent = 'Error — Try Again';
-            btn.disabled = false;
-          }
-        } catch {
-          btn.textContent = 'Error — Try Again';
-         
+            btn.textContent = 'Sent �
