@@ -553,7 +553,7 @@
       position: relative;
     }
 
-    .svc-desc-item:hover { background: rgba(26,111,196,0.04); }
+    .svc-desc-item:hover { background: rgba(26,111,196,0.04); cursor: pointer; }
 
     .svc-desc-item.selected {
       background: var(--black);
@@ -1385,28 +1385,28 @@
 
   <!-- SERVICE DESCRIPTIONS -->
   <div class="service-descriptions">
-    <div class="svc-desc-item" onclick="toggleService(this)"><span class="svc-desc-check">✓</span>
+    <div class="svc-desc-item"><span class="svc-desc-check">✓</span>
       <span class="svc-desc-num">01</span>
       <div>
         <h4>Exterior Detail</h4>
         <p>A head-to-toe exterior treatment that restores depth and gloss to your paint. We hand wash, polish, and dress every surface — leaving your car looking freshly delivered from the showroom floor.</p>
       </div>
     </div>
-    <div class="svc-desc-item" onclick="toggleService(this)"><span class="svc-desc-check">✓</span>
+    <div class="svc-desc-item"><span class="svc-desc-check">✓</span>
       <span class="svc-desc-num">02</span>
       <div>
         <h4>Interior Detail</h4>
         <p>We deep-clean every inch of your cabin — vacuuming, shampooing, conditioning leather, and detailing every vent, seam, and surface. The result is a fresh, odor-free interior that feels brand new.</p>
       </div>
     </div>
-    <div class="svc-desc-item" onclick="toggleService(this)"><span class="svc-desc-check">✓</span>
+    <div class="svc-desc-item"><span class="svc-desc-check">✓</span>
       <span class="svc-desc-num">03</span>
       <div>
         <h4>Paint Correction</h4>
         <p>Using precision machine polishing, we eliminate swirl marks, fine scratches, water spots, and oxidation to restore your paint to a flawless, mirror-like finish. Essential before any coating application.</p>
       </div>
     </div>
-    <div class="svc-desc-item" onclick="toggleService(this)"><span class="svc-desc-check">✓</span>
+    <div class="svc-desc-item"><span class="svc-desc-check">✓</span>
       <span class="svc-desc-num">04</span>
       <div>
         <h4>Full Detail Package</h4>
@@ -1414,7 +1414,7 @@
         <p style="font-size:0.75rem; color:var(--gold); margin-top:8px; letter-spacing:0.05em;">✦ Includes exterior &amp; interior — select one or the other, not both.</p>
       </div>
     </div>
-    <div class="svc-desc-item" onclick="toggleService(this)"><span class="svc-desc-check">✓</span>
+    <div class="svc-desc-item"><span class="svc-desc-check">✓</span>
       <span class="svc-desc-num">05</span>
       <div>
         <h4>Maintenance Plans</h4>
@@ -1442,8 +1442,8 @@
       </select>
     </div>
 
-    <button class="btn-book-calendly" id="bookCalendlyBtn" onclick="openCalendly()">Book on Calendly →</button>
-    <span class="booking-clear" onclick="clearAllServices()">Clear selection</span>
+    <button class="btn-book-calendly" id="bookCalendlyBtn">Book on Calendly →</button>
+    <span class="booking-clear">Clear selection</span>
   </div>
 
 </section>
